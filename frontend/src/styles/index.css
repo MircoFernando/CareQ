@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #1A8C7A;
+    --color-primary-dark: #156D5F;
+    --color-primary-light: #E6F4F2;
+    --color-surface: #FFFFFF;
+    --color-bg: #F4F6F8;
+    --color-text-primary: #1A1A2E;
+    --color-text-secondary: #5A6472;
+    --color-border: #E2E8F0;
+    --color-emergency: #D9363E;
+    --color-urgent: #E87A2F;
+    --color-normal: #1A8C7A;
+    --color-sla-warning: #F0A500;
+    --color-active: #2ECC71;
+    --color-inactive: #95A5A6;
+  }
+  
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: 'DM Sans', 'Nunito Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom premium animations */
+@keyframes heartbeat {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 54, 62, 0.4); }
+  50% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(217, 54, 62, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 54, 62, 0); }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes callReveal {
+  0% { transform: scale(0.9) rotate(-1deg); opacity: 0; }
+  70% { transform: scale(1.03) rotate(0.5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.animate-sla-breach {
+  animation: heartbeat 2s infinite ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+.animate-call-reveal {
+  animation: callReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Custom scrollbars for clean UI tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
